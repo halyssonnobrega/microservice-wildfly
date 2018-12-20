@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "77191519-6abf-41eb-aca3-4beb34d14ed2",
+		"name": "Transactions Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "online/transactions/authorize",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"authorizationOperationType\": \"REFUND\",\r\n  \"cardInfo\": \"string\",\r\n  \"cardIssuer\": 1,\r\n  \"cardNumber\": 0,\r\n  \"cardSerialNumberHexString\": \"0433458AD55197\",\r\n  \"cardTechTypeIdentifier\": 8,\r\n  \"channelPointDescription\": \"string\",\r\n  \"channelPointId\": \"string\",\r\n  \"contractPointerId\": 0,\r\n  \"reason\": \"string\",\r\n  \"targetAmount\": 0,\r\n  \"targetCurrencyCode\": \"CHF\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/transactions/api/online/transaction/authorize",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						"api",
+						"online",
+						"transaction",
+						"authorize"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "online/transactions/commit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"authorizationUuid\": \"string\",\r\n  \"csvTransaction\": {\r\n    \"correlationId\": \"string\",\r\n    \"csv\": \"1;3;1.0;739b834d-3786-c88a-6888-b5b54ba8d668;;2018-11-29 16:50:24;8;2018-11-29;1248;8;;;0;0;0;;300;1;POS1;;;1;3;0;91548;0;2450570449;8;6;8;32;0;0;0;0;0;0;0;0;0;31;33592;PwZwPoScAEQcIYgL7/wAOoAAAAAAAAAAAAAAAAAAASw=;1;;PgAAPoScADgAAdBAAAAAAAAAAAAAAAAAAAAAAAAAAAA=;;0;0;300;0;0;;0;0;2015-10-26T00:00:00;;/o4sdwAiAgCACZHSBkox;2;0;19;9028;0;0;0;0;\",\r\n    \"locationDescription\": \"string\"\r\n  },\r\n  \"performedOnDate\": \"2018-11-29T16:50:24.000\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/transactions/api/online/transaction/commit",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						"api",
+						"online",
+						"transaction",
+						"commit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "online/transactions/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": false
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"channelPointDescription\": \"Online\",\r\n  \"channelPointId\": \"12345\",\r\n  \"correlationId\": \"123\",\r\n  \"csvTransactions\": [\r\n    {\r\n      \"correlationId\": \"123\",\r\n      \"csv\": \"1;3;1.0;739b834d-3786-c88a-6888-b5b54ba8d668;;2018-11-29 16:50:24;8;2018-11-29;1248;8;;;0;0;0;;300;1;POS1;;;1;3;0;91548;0;2450570449;8;6;8;32;0;0;0;0;0;0;0;0;0;31;33592;PwZwPoScAEQcIYgL7/wAOoAAAAAAAAAAAAAAAAAAASw=;1;;PgAAPoScADgAAdBAAAAAAAAAAAAAAAAAAAAAAAAAAAA=;;0;0;300;0;0;;0;0;2015-10-26T00:00:00;;/o4sdwAiAgCACZHSBkox;2;0;19;9028;0;0;0;0;\",\r\n      \"locationDescription\": \"Online\"\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/transactions/api/online/transaction/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						"api",
+						"online",
+						"transaction",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "offline/validations/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"csvTransactions\" : [\n\t    {\n\t        \"csv\" : \"1;3;1.0;739b834d-3786-c88a-6888-b5b54ba8d668;;2018-11-29 16:50:24;8;2018-11-29;1248;8;;;0;0;0;;300;1;POS1;;;1;3;0;91548;0;2450570449;8;6;8;32;0;0;0;0;0;0;0;0;0;31;33592;PwZwPoScAEQcIYgL7/wAOoAAAAAAAAAAAAAAAAAAASw=;1;;PgAAPoScADgAAdBAAAAAAAAAAAAAAAAAAAAAAAAAAAA=;;0;0;300;0;0;;0;0;2015-10-26T00:00:00;;/o4sdwAiAgCACZHSBkox;2;0;19;9028;0;0;0;0;\",\n\t        \"correlationId\" : \"10\",\n\t        \"locationDescription\" : \"Teste\"\n\t    }\n    ],\n\t\"channelPointId\" : \"12345\",\n    \"channelPointDescription\" : \"Teste\",\n    \"correlationId\" : \"10\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8090/transactions/api/offline/validation/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"transactions",
+						"api",
+						"offline",
+						"validation",
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
